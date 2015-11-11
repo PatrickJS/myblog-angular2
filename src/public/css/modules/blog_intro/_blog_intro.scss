@@ -1,0 +1,43 @@
+
+span.site-intro__separator:before,
+span.site-intro__separator:after {
+  content: '';
+  width: 50px;
+  border-top: 2px solid #373C43;
+  display: inline-block;
+  margin-bottom: u(1rem);
+  border-top:2px solid $menu--background-color;
+
+  @include breakpoint($breakpoint-narrow){
+    width: 200px;
+  }
+}
+
+span.site-intro__separator:before{
+  margin-right: u(1rem);
+}
+
+span.site-intro__separator:after{
+  margin-left: u(1rem);
+
+}
+
+.site-intro__separator{
+  .fa{
+    color:$color--primary;
+  }
+}
+
+
+.site-intro{
+  padding-bottom:u(5rem);;
+  padding-top:u(5rem);
+  text-align:center;
+
+  .site-intro__intro-text{
+    padding: 30px 0;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+}

@@ -1,0 +1,260 @@
+/**
+ * Tells the u mixin to use pixel values only.
+ */
+$px-only: false !default;
+
+/**
+ * Returns a number from a string.
+ */
+@function parseInt($n) {
+  @return $n / ($n * 0 + 1);
+}
+
+/**
+ * Base font size without the units.
+ * @access private
+ */
+$fontBase: parseInt($base-font-size);
+
+/**
+ * Base line height without the units.
+ * @access private
+ */
+$lineBase: parseInt($base-line-height);
+
+/**
+ * Outputs the given value as pixel or rems depending on the given unit and the on the $px-only. It
+ * acts as rem fallback for ie <= 8.
+ * @link http://davidwalsh.name/rem-px-browser-function-sass
+ * @param {px | rem} $values - A value which should be rendered to rem.
+ * @param {boolean} $use-px-only - Determines if the function should return px based on the rems.
+ * @example scss
+ *     $base-font-size: 14px;
+ *     $px-only: false;
+ *     font-size: u(2rem);
+ *     // css output:
+ *     font-size: 2rem;
+ *
+ *     $base-font-size: 14px;
+ *     $px-only: true;
+ *     font-size: u(2rem);
+ *     // css output:
+ *     font-size: 28px;
+ */
+@function u($values, $use-px-only: $px-only){
+  $list: ();
+
+  @each $value in $values {
+    $unit: unit($value);
+    $val : parseInt($value);
+
+    @if ($use-px-only) and ($unit == 'rem') {
+      $list: append($list, ($val * $fontBase) + px);
+    }
+    @else if ($unit == 'px') or ($unit == 'rem') or (($unit == '') and $val == 0) {
+      $list: append($list, $value);
+    }
+    @else {
+      @warn 'There is no unit conversion for #{$unit}';
+    }
+  }
+
+  @return $list();
+}
+
+/**
+ * Get the line height for the given font size, which should be in pixels or rem.
+ * Forked from inuit css.
+ * @link https://github.com/inuitcss/tools.mixins
+ * @param {px | rem} $font-size - The font size.
+ * @param {boolean} $use-px-only - Determines if the return value should be in pxs. Use full when setting the
+ *     line-height in a :before or :after due to a ie bug: https://connect.microsoft.com/IE/feedback/details/776744
+ */
+@function get-line-height($font-size, $use-px-only: $px-only) {
+  $unit: unit($font-size);
+  $font-size-value: parseInt($font-size);
+  @if ($unit == 'rem') {
+    $font-size-value: $fontBase * $font-size-value;
+  }
+
+  // todo: Use unitless line height?
+  @return u(ceil($font-size-value / $lineBase) * $lineBase/$fontBase * 1rem, $use-px-only);
+}
+
+/**
+ * Adjust the line height to the given font size, which should be in pixels or rem.
+ * Forked from inuit css.
+ * @link https://github.com/inuitcss/tools.mixins
+ * @param {px | rem} $font-size - The new font size.
+ * @param {rem | auto} $font-size (auto) - If auto the mixin will automatically calculate the right size to
+ *     keep the vertical rhythm.
+ * @param {boolean} $lineheight-px-only - Determines if the line height value should be in pxs. Use full when using this
+ *     mixin in a :before or :after due to a ie bug: https://connect.microsoft.com/IE/feedback/details/776744
+ */
+@mixin adjust-font-size($font-size, $line-height: auto, $lineheight-px-only: $px-only) {
+  $unit: unit($font-size);
+  $font-size-value: parseInt($font-size);
+  @if ($unit == 'px') {
+    // Calculate the size relative to the base font size if the value given was in pixels.
+    font-size: u(($font-size-value / $fontBase) * 1rem);
+  }
+  @else if ($unit == 'rem') {
+    font-size: u($font-size);
+
+    @if $line-height == auto {
+      // Calculate the given font size in pixels, so we can re use the code for  calculating the
+      // line size.
+      $font-size-value: $fontBase * $font-size-value;
+    }
+  }
+
+  @if $line-height == auto {
+    line-height: get-line-height($font-size, $lineheight-px-only);
+  }
+  @else {
+    @if (type-of($line-height) == number or $line-height == inherit or $line-height == normal) {
+      line-height: $line-height;
+    }
+    @else if ($line-height != none and $line-height != false) {
+      @warn "D'oh! '#{$line-height}' is not a valid value for 'line-height'."
+    }
+
+  }
+}
+
+
+/**
+ * Calculates the space needed for the given lines and a amount of space was already is used by
+ * element another.
+ * @param {number} $lines - Amount of lines that should be used for the space.
+ * @param {px|rem} $subtract - Amount of space that should be subtracted from the lines.
+ * @return {rem|px} Either rem or pixels depending on the $px-only variable.
+ */
+@function rhythm($lines, $subtract: 0) {
+  $subtract_unit: unit($subtract);
+  $subtract_value: parseInt($subtract);
+
+  $space: 0;
+  @if ($subtract_unit == 'px') {
+    $space: (($lineBase - $subtract_value) * $lines / $fontBase) * 1rem;
+  }
+  @else if ($subtract_unit == 'rem' or $subtract == 0) {
+    $space: (($lineBase / $fontBase * $lines)  - $subtract_value) * 1rem;
+  }
+  @else {
+    @warn 'The given unit ' + $subtract_unit + ' is not supported in the rhythm function.';
+  }
+
+
+  @return u($space);
+}
+
+/**
+ * Adds a margin top without destroying the vertical rhythm.
+ */
+@mixin margin-leader($lines: 1, $subtract: 0) {
+  margin-top: rhythm($lines, $subtract);
+}
+
+/**
+ * Adds a margin bottom without destroying the vertical rhythm.
+ */
+@mixin margin-trailer($lines: 1, $subtract: 0) {
+  margin-bottom: rhythm($lines, $subtract);
+}
+
+/**
+ * Adds a padding top without destroying the vertical rhythm.
+ */
+@mixin padding-leader($lines: 1, $subtract: 0) {
+  padding-top: rhythm($lines, $subtract);
+}
+
+/**
+ * Adds a padding bottom without destroying the vertical rhythm.
+ */
+@mixin padding-trailer($lines: 1, $subtract: 0) {
+  padding-bottom: rhythm($lines, $subtract);
+}
+
+/**
+ * Applies a border to one side of an element, while fixing the vertical rhythm using padding.
+ * Forked from
+ * @link https://gist.github.com/ry5n/2026666
+ * @param {top | left | right | bottom} $side - The side to which the border should be applied.
+ * @param {list|none} $border - A list in the order of border width in px, border style and border color.
+ * @param {number} $lines (1) - The number of lines which should be used as padding to keep the vertical
+ *     rhythm.
+ */
+@mixin adjust-border-side($side, $border: $rule-width $rule-style $rule-color, $lines: 1) {
+  @if($border == none) {
+    border-#{$side}: none;
+  }
+  @else {
+    $width: nth($border, 1);
+    $style: nth($border, 2);
+    $color: nth($border, 3);
+    @if ($style == none) {
+
+    }
+    @else {
+      border-#{$side}: u($width) $style $color;
+      padding-#{$side}: rhythm($lines, $width);
+    }
+  }
+}
+
+/**
+ * Apply an equal border to all sides, while fixing the vertical rhythm using padding.
+ * Forked from
+ * @link https://gist.github.com/ry5n/2026666
+ * @param {list|none} $border - A list in the order of border width in px, border style and border color.
+ * @param {number} $lines (1) - The number of lines which should be used as padding to keep the
+ *     vertical rhythm.
+ */
+@mixin adjust-borders($border: $rule-width $rule-style $rule-color, $lines: 1) {
+  @if($border == none) {
+    border: none;
+  }
+  @else {
+    $width: nth($border, 1);
+    $style: nth($border, 2);
+    $color: nth($border, 3);
+    @if ($style == none) {
+      border: none;
+    }
+    @else {
+      border: u($width) $style $color;
+      padding: rhythm($lines, $width);
+    }
+  }
+}
+
+/**
+ * Removes the the border and padding from an element.
+ */
+@mixin remove-adjusted-borders() {
+  border: none;
+  padding: 0;
+}
+
+/**
+ * Apply a border on a given side and adds a padding and margin to that same side.
+ * @param {top | left | right | bottom} $side - The side to which the border should be applied.
+ * @param {list|none} $border - A list in the order of border width in px, border style and border color.
+ * @param {number} $lines (1) - The number of lines which should be used as padding and margin to
+ *     keep the vertical rhythm.
+ */
+@mixin border-side-margin($side, $border: $rule-width $rule-style $rule-color, $lines: 1) {
+  @if($border == 'none') {
+    border-#{$side}: none;
+  }
+  @else {
+    $width: nth($border, 1);
+    $style: nth($border, 2);
+    $color: nth($border, 3);
+    border-#{$side}: u($width) $style $color;
+    padding-#{$side}: rhythm($lines, $width);
+    margin-#{$side}: rhythm($lines, $width);
+  }
+}

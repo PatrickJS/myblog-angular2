@@ -1,0 +1,23 @@
+{
+  "name": "myblog-angular2",
+  "version": "0.0.0",
+  "authors": [
+    "joaogarin <joao.garin@gmail.com>"
+  ],
+  "description": "blog angular2",
+  "main": "index.html",
+  "moduleType": [],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "font-awesome": "fontawesome#~4.4.0",
+    "breakpoint-sass": "~2.5.0"
+  }
+}

@@ -1,0 +1,24 @@
+/**
+ * Breakpoint for very small viewports with a one column layout.
+ */
+$breakpoint-small:  480px, 'no-query' true !default;
+
+/**
+ * Breakpoint for slightly bigger viewports with a column layout.
+ */
+$breakpoint-narrow: 800px, 'no-query' true !default;
+
+/**
+ * Medium, tablet like viewports using a 12 column layout.
+ */
+$breakpoint-medium: 1025px, 'no-query' true !default;
+
+/**
+ * Big viewport using the full width using a 24 column layout.
+ */
+$breakpoint-wide:  1200px, 'no-query' true !default;
+
+/**
+ * Dense pixel ration devices.
+ */
+$hidpi: min-resolution 1.5dppx !default;

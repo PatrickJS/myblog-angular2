@@ -1,0 +1,39 @@
+/*Menu top*/
+.menu-top {
+  line-height: 58px;
+}
+.menu-top .profile {
+  display: inline-block;
+  padding: 8px 10px;
+  line-height: 42px;
+}
+.menu-top .profile,
+.menu-side {
+  width: 300px;
+}
+.menu-top .profile img {
+  float: left;
+  margin-right: 1em;
+  width:42px;
+  height:auto;
+}
+.menu-top .profile span{
+  color:$background--color;
+}
+
+/*Menu top Icon list*/
+.menu-top .icon-list {
+  display: inline-block;
+  font-size: 1.25em;
+}
+.menu-top .icon-list a {
+  margin: 0 1em 0 0;
+  padding: 0;
+}
+
+/*TODO - Include breakpoint*/
+@media screen and (max-width: 32em) {
+  .icon-list {
+    padding-left: 1em;
+  }
+}

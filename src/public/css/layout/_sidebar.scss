@@ -1,0 +1,131 @@
+.menu-wrap a {
+  color: $background--color;
+}
+.menu-wrap a:hover,
+.menu-wrap a:focus {
+  color: $background--color;
+}
+.menu-wrap {
+  position: absolute;
+  font-weight: 500;
+  opacity: 0;
+  -webkit-transition: opacity 1s;
+  transition: opacity 1s;
+}
+
+/*Menu button*/
+.main--wrap__menu-button {
+  position: fixed;
+  z-index: 1000;
+  border: none;
+  cursor:pointer;
+  background: $menu--background-color;
+  -webkit-transition: -webkit-transform 0.3s;
+  transition: transform 0.3s;
+  color:white;
+  top: 45px;
+  width: 40px;
+  height: 40px;
+  font-size: 20px;
+  line-height: 40px;
+
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+
+  .fa{
+    font-size:15px;
+    margin-left:10px;
+  }
+}
+.main--wrap__menu-button:hover {
+  opacity: 0.8;
+  color:white;
+}
+.main--wrap__menu-button.is-white{
+  color:$background--color;
+}
+.main--wrap__menu-button.is-white:hover{
+  color:$background--color;
+}
+
+/*Menu side*/
+
+.menu-side{
+  .menu-side__menu-links{
+
+    border:{
+    }
+
+    margin:{
+      top:0px;
+      right:50px;
+      left:50px;
+    }
+  }
+
+  .menu-slide__block{
+
+    color:white;
+    font-size:u(1rem);
+
+    margin:{
+      top:20px;
+      right:50px;
+      left:50px;
+    }
+    padding:{
+      top:20px;
+    }
+    border:{
+      top:1px solid white;
+    }
+
+    h4{
+      color:white;
+    }
+    p{
+      color:white;
+      font-size:u(1rem);
+    }
+  }
+}
+
+.menu-side a {
+  display: block;
+  padding:{
+    left:0;
+    right:0px;
+    top:15px;
+    bottom:15px;
+  }
+  font-size:15px;
+  font-family: $headings-font;
+
+  @include transition(all ease 0.3s);
+}
+
+.menu-side a:hover{
+  text-decoration: none;
+}
+
+.menu-side a:first-child {
+}
+
+/* Shown menu */
+.show-menu .menu-wrap {
+  opacity: 1;
+}
+
+.show-menu .content-wrap,
+.show-menu .main--wrap__menu-button {
+  -webkit-transform: translate3d(300px,60px,0);
+  transform: translate3d(300px,60px,0);
+}
+
+.show-menu .content::before {
+  opacity: 1;
+  -webkit-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+  -webkit-transform: translate3d(0,0,0);
+  transform: translate3d(0,0,0);
+}
