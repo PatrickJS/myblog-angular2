@@ -1,0 +1,40 @@
+
+@import "./_settings";
+@import "./_colors";
+@import "./../tools/vertical_rythm";
+
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+  font-family: $headings-font;
+  font-weight: 600;
+  line-height: 1.1;
+  color: $color--grey-dark;
+}
+
+h1{
+  margin: u(.67rem) 0;
+  font-size: u(2.5rem);
+}
+
+p{
+    font-size:u(1.1rem);
+    line-height: u(2.1rem);
+    color:$text--color;
+}
+
+a,a:hover{
+  text-decoration: none;
+  color:$color--primary;
+}
+
+a:focus,button:focus{
+  outline:none;
+  text-decoration:none;
+}
+
+.text-muted {
+  color: $color--grey;
+}
+
+.text-center{
+  text-align:center;
+}

@@ -1,0 +1,40 @@
+@import "./_css3_mixins";
+@import "./_colors";
+
+@mixin button(){
+  background-image: none;
+  @include border-radius(25px);
+  border:none;
+  padding: {
+    bottom:u(0.7rem);
+    top:u(0.7rem);
+    left:u(2rem);
+    right:u(2rem);
+  };
+  @include box-shadow(0px 0px 0px 0px);
+  text-shadow: 0px 0px 0px;
+}
+
+@mixin button--primary(){
+  background:$background--color;
+  border:1px solid $menu--background-color;
+  color:$menu--background-color;
+}
+
+.btn{
+  @include button();
+
+}
+
+.btn-primary{
+  @extend .btn;
+
+  @include button--primary();
+}
+
+.btn-primary:hover,.btn-primary:focus{
+  background:$button-color--primary;
+  border-color:$button-color--primary;
+  border:1px solid $button-color--primary;
+  color:white;
+}

@@ -1,0 +1,32 @@
+@mixin font-icon($icon, $text--color: inherit, $fontFamily: FontAwesome) {
+  @if $icon != none {
+    display: inline-block;
+    font-style: normal;
+    font-weight: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    content: $icon;
+    font-family: $fontFamily;
+    color: $text--color;
+  }
+}
+
+
+@mixin font-icon--before($icon, $text--color: inherit, $margin-right: u(0.5rem), $fontFamily: 'FontAwesome') {
+  &:before {
+    @if $icon != none {
+      margin-right: $margin-right;
+      @include font-icon($icon, $text--color, $fontFamily);
+    }
+  }
+}
+
+@mixin font-icon--after($icon, $text--color: inherit, $margin-left: u(0.5rem), $fontFamily: 'FontAwesome') {
+  &:after {
+    @if $icon != none {
+      margin-left: $margin-left;
+      @include font-icon($icon, $text--color, $fontFamily);
+    }
+  }
+}

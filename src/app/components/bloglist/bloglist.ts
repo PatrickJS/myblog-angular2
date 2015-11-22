@@ -35,10 +35,10 @@ export class BlogList {
     makeRequest(): void {
         this.loading = true;
         this.http.request('http://localhost/blog_backoffice/blog-items-fields')
-            .subscribe((res:Response) => {
-                this.data = res.json();
-                this.loading = false;
-                console.log(this.data);
-            });
+        .subscribe((res:Response) => {
+            this.data = res.json();
+            this.loading = false;
+            console.log(this.data);
+        });
     }
 }

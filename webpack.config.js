@@ -111,9 +111,15 @@ module.exports = {
 
       // Support for CSS as raw text
       { test: /\.css$/,   loader: 'raw' },
-
+      
+      //sass loader implementation
+      {test: /\.scss$/, loaders: ["style", "css", "sass"]},
+      
       // support for .html as raw text
       { test: /\.html$/,  loader: 'raw' },
+      
+      // inline base64 URLs for <=8k images, direct URLs for the rest
+      { test: /\.(png|jpg)$/, loader: 'url-loader?limit=8192'},
 
       // Support for .ts files.
       { test: /\.ts$/,    loader: 'ts',

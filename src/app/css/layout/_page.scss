@@ -1,0 +1,55 @@
+@import "./../base/_settings";
+@import "./../base/_colors";
+@import "./../base/_typography";
+@import "./../base/_mixins";
+@import "./../base/_breakpoints";
+
+html{
+  font-size:$base-font-size;
+}
+
+body{
+  font-family: $base--font;
+  background: white;
+}
+
+p{
+    font-size:u(1.1rem);
+    line-height: u(2.1rem);
+    color:$text--color;
+}
+
+a,a:hover{
+  text-decoration: none;
+  color:$color--primary;
+}
+
+a:focus,button:focus{
+  outline:none;
+  text-decoration:none;
+}
+
+html,
+body {
+  @include full-height--overflow;
+}
+
+.blog-app{
+  background: $background--color;
+  padding-bottom:60px;
+  overflow-y:scroll;
+  font-family: $base--font;
+  font-size:u(1.1rem);
+  line-height: u(2.1rem);
+
+  margin: {
+    left:u(2rem);
+    right:u(2rem);
+  }
+
+  @include breakpoint($breakpoint-narrow){
+    max-width:$max-width;
+    margin:auto;
+  }
+
+}
