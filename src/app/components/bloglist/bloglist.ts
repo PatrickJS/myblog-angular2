@@ -4,16 +4,33 @@
 /*
  * Angular
  */
-import {Component, View, NgIf} from "angular2/angular2";
+import {Component, View, NgIf, NgFor} from "angular2/angular2";
 import {BlogItem} from "../../Models/blogitem/blogitem";
 import {BlogService} from "../../services/BlogService/BlogService";
+
+var blogs_css = require("!css!sass!./css/_blog_item.scss");
 
 @Component({
     selector: 'blog-list',
     providers: [BlogService]
 })
 @View({
+    directives: [NgFor],
+    styles: [`${blogs_css}`],
     template: `<div class="blog-list blogs">
+    <div class="blog_item" *ng-for="#blog_item of blogItems">
+        <h1 class="blog-title">
+            {{blog_item.title}}
+        </h1>
+
+        <div class="blog-item__image" [inner-html]="blog_item.image">
+
+        </div>
+
+        <p class="post-body" [inner-html]="blog_item.body">
+
+        </p>
+    </div>
 </div>`
 })
 export class BlogList {

@@ -8,6 +8,11 @@ html{
   font-size:$base-font-size;
 }
 
+img {
+  max-width: 100%;
+  height: auto;
+}
+
 body{
   font-family: $base--font;
   background: white;

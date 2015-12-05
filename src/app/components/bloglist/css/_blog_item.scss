@@ -1,0 +1,68 @@
+@import "./../../../css/base/_settings";
+@import "./../../../css/base/_colors";
+@import "./../../../css/base/_typography";
+@import "./../../../css/base/_mixins";
+@import "./../../../css/base/_css3_mixins";
+@import "./../../../css/base/_breakpoints";
+
+.blog-list {
+  text-align:center;
+
+  input.form-control {
+    margin-bottom: u(3rem);
+    padding: u(0.9rem);
+    width: 60%;
+    text-align: center;
+    border-radius: 2px;
+    box-shadow: none;
+    font-size:14px;
+    font-family: $base--font;
+    border: 1px solid $color--grey-light;
+
+    &:focus {
+      @include box-shadow(none);
+      border:1px solid $color--primary;
+      outline:none;
+    }
+  }
+}
+
+.blog_item{
+  text-align:left;
+  margin-bottom:u(8rem);
+  @include breakpoint($breakpoint-narrow){
+    max-width:700px;
+    margin: {
+      left:auto;
+      right:auto;
+    }
+  }
+
+  h2{
+    margin-bottom:u(2rem);
+  }
+
+  h1{
+    margin-bottom:u(3rem);
+  }
+  .post-body{
+    margin:u(2rem) auto;
+  }
+
+  .comments {
+    margin:u(2rem) auto;
+  }
+
+  .blog-item__image img{
+    max-width:100%;
+    height:auto;
+  }
+  
+  .full-post {
+    text-align: center;
+    margin-top: 20px;
+    display: inline-block;
+    width: 100%;
+  }
+
+}

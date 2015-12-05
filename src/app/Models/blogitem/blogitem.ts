@@ -1,12 +1,12 @@
 export class BlogItem {
     url: string;
-    imageUrl: string;
+    image: string;
     title: string;
     body: string;
     id: number;
 
-    constructor(imageUrl,title,body,url,id){
-        this.imageUrl = imageUrl;
+    constructor(image,title,body,url,id){
+        this.image = image;
         this.title = title;
         this.body = body;
         this.url = url;
