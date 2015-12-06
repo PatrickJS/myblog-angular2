@@ -5,13 +5,14 @@
  * Angular
  */
 import {Component, View, NgIf, NgFor} from "angular2/angular2";
+import {RouteParams} from "angular2/router";
 import {BlogItem} from "../../Models/blogitem/blogitem";
 import {BlogService} from "../../services/BlogService/BlogService";
 
-var blogs_css = require("!css!sass!./css/_blog_item.scss");
+var blogs_css = require("!css!sass!./css/_blog_item_node.scss");
 
 @Component({
-    selector: 'blog-list',
+    selector: 'blog-node',
     providers: [BlogService]
 })
 @View({
@@ -34,26 +35,30 @@ var blogs_css = require("!css!sass!./css/_blog_item.scss");
         <p class="post-body" [inner-html]="blog_item.body">
 
         </p>
-
-        <div class="full-post">
-            <a class="btn btn-primary" href="#{{blog_item.url}}">Read full post</a>
-        </div>
     </div>
 </div>`
 })
-export class BlogList {
+export class BlogNode {
 
     data: Object;
     loading: boolean;
     blogItems: Array<BlogItem>;
-    //Here we will start picking up the blog items from the backoffice
-    constructor(public blogservice: BlogService) {
+    title: string;
 
-        blogservice.blogitems("all")
-            .subscribe(
-                blogitems => this.blogItems = blogitems,
-                error => console.error('Error: ' + error),
-                () => console.log(this.blogItems)
-            );
+    //Here we will start picking up the blog items from the backoffice
+    constructor(public blogservice: BlogService, private routeParams: RouteParams) {
+        this.title = routeParams.get("title");
+
+        blogservice.blogitemnode(this.title).subscribe(
+            blognode => {
+                blognode.map(blognode_obs => {
+                    blognode_obs.subscribe(
+                        node => this.blogItems = node
+                    )
+                });
+            },
+            error => console.error('Error: ' + error),
+            () => {}
+        );
     }
 }

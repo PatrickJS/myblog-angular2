@@ -17,6 +17,7 @@ import {ViewEncapsulation} from 'angular2/angular2';
  */
 import {BlogList} from "./components/bloglist/bloglist";
 import {SiteIntro} from "./components/siteintro/siteintro";
+import {BlogNode} from "./components/blognode/blognode";
 
 var page_css = require("!css!sass!./css/layout/_page.scss");
 
@@ -34,8 +35,9 @@ var page_css = require("!css!sass!./css/layout/_page.scss");
                 </div>`
 })
 @RouteConfig([
-    {path: "/", redirectTo: "/blog"},
-    {path: '/blog', component: BlogList, as: 'Bloglist'}
+    {path: "/", redirectTo: "/home"},
+    {path: '/home', component: BlogList, as: 'Bloglist'},
+    {path: '/blog/:title', component: BlogNode, as: 'Blognode'}
 ])
 export class App {
     
