@@ -3,6 +3,8 @@
 @import "./../base/_typography";
 @import "./../base/_mixins";
 @import "./../base/_breakpoints";
+@import "./../base/_base";
+@import "./../base/_buttons";
 
 html{
   font-size:$base-font-size;
@@ -44,7 +46,7 @@ body {
   padding-bottom:60px;
   overflow-y:scroll;
   font-family: $base--font;
-  font-size:u(1.1rem);
+  font-size:u(1rem);
   line-height: u(2.1rem);
 
   margin: {
