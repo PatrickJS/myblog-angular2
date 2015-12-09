@@ -1,0 +1,2 @@
+# If the requested resource doesn't exist, use index.html
+RewriteRule ^ /joaogarin.github.io/index.html

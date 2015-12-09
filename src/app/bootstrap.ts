@@ -26,4 +26,5 @@ bootstrap(App, [
   ELEMENT_PROBE_PROVIDERS
 ]);
 */
-bootstrap(App, [HTTP_BINDINGS,ROUTER_PROVIDERS, provide(LocationStrategy, {useClass: HashLocationStrategy})]);
+bootstrap(App, [HTTP_BINDINGS,ROUTER_PROVIDERS,
+    provide(APP_BASE_HREF, {useValue: '/'})]);

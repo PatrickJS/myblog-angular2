@@ -36,7 +36,7 @@ var blogs_css = require("!css!sass!./css/_blog_item.scss");
         </p>
 
         <div class="full-post">
-            <a class="btn btn-primary" href="#{{blog_item.url}}">Read full post</a>
+            <a class="btn btn-primary" href="{{blog_item.url}}">Read full post</a>
         </div>
     </div>
 </div>`
