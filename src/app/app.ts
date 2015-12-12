@@ -36,7 +36,7 @@ var page_css = require("!css!sass!./css/layout/_page.scss");
 })
 @RouteConfig([
     {path: "/", redirectTo: "/home"},
-    {path: '/home', component: BlogList, as: 'Bloglist'},
+    {path: '/home', component: BlogList, as: 'Home'},
     {path: '/blog/:title', component: BlogNode, as: 'Blognode'}
 ])
 export class App {

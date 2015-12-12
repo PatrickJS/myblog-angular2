@@ -15,7 +15,7 @@ export class BlogService {
                         item.field_image,
                         item.title,
                         item.body,
-                        item.path.replace("/blog_backoffice/", "/blog/"),
+                        item.path.replace("/blog_backoffice/", ""),
                         item.nid,
                         item.created
                     )
@@ -33,7 +33,7 @@ export class BlogService {
                                 item.field_image,
                                 item.title,
                                 item.body,
-                                item.path.replace("/blog_backoffice/", "/blog/"),
+                                item.path.replace("/blog_backoffice/", ""),
                                 item.nid,
                                 item.created
                             )

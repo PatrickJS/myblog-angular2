@@ -1,13 +1,15 @@
 import { Component, View } from 'angular2/angular2';
+import {RouterLink} from 'angular2/router';
 
 var css = require("!css!sass!./css/_siteintro.scss");
 var logo = require("url!./images/logo_green.jpeg");
 
 @Component({
     selector: 'site-intro',
+    directives: [RouterLink],
     styles: [`${css}`],
     template:`<div class="site-intro">
-  <a href="/">
+  <a [router-link]="['Home']">
     <img alt="logo_dark" src="${logo}"/>
   </a>
   <p class="site-intro__intro-text">

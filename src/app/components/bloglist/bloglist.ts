@@ -7,6 +7,7 @@
 import {Component, View, NgIf, NgFor} from "angular2/angular2";
 import {BlogItem} from "../../Models/blogitem/blogitem";
 import {BlogService} from "../../services/BlogService/BlogService";
+import {RouterLink} from 'angular2/router';
 
 var blogs_css = require("!css!sass!./css/_blog_item.scss");
 
@@ -15,7 +16,7 @@ var blogs_css = require("!css!sass!./css/_blog_item.scss");
     providers: [BlogService]
 })
 @View({
-    directives: [NgFor],
+    directives: [NgFor,RouterLink],
     styles: [`${blogs_css}`],
     template: `<div class="blog-list blogs">
     <div class="blog_item" *ng-for="#blog_item of blogItems">
@@ -36,7 +37,7 @@ var blogs_css = require("!css!sass!./css/_blog_item.scss");
         </p>
 
         <div class="full-post">
-            <a class="btn btn-primary" href="{{blog_item.url}}">Read full post</a>
+            <a class="btn btn-primary" [router-link]="['/Blognode', {title: blog_item.url}]">Read full post</a>
         </div>
     </div>
 </div>`
