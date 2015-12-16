@@ -1,16 +1,9 @@
 /*
  * Angular 2 decorators and services
  */
-import {Directive, Component, View, ElementRef} from 'angular2/angular2';
-import {RouteConfig, Router} from 'angular2/router';
+import {Directive,View, Component, ElementRef, Renderer,ViewEncapsulation} from 'angular2/core';
+import {RouteConfig, Router,ROUTER_DIRECTIVES} from 'angular2/router';
 import {Http, Headers} from 'angular2/http';
-
-/*
- * Angular Directives
- */
-import {CORE_DIRECTIVES, FORM_DIRECTIVES} from 'angular2/angular2';
-import {ROUTER_DIRECTIVES} from 'angular2/router';
-import {ViewEncapsulation} from 'angular2/angular2';
 
 /*
  * App child components
@@ -35,8 +28,7 @@ var page_css = require("!css!sass!./css/layout/_page.scss");
                 </div>`
 })
 @RouteConfig([
-    {path: "/", redirectTo: "/home"},
-    {path: '/home', component: BlogList, as: 'Home'},
+    {path: '/', component: BlogList, as: 'Home'},
     {path: '/blog/:title', component: BlogNode, as: 'Blognode'}
 ])
 export class App {

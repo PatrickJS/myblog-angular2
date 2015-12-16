@@ -1,18 +1,23 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "ES5",
     "module": "commonjs",
-    "declaration": false,
-    "noImplicitAny": false,
     "removeComments": true,
-    "noLib": false,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "sourceMap": true,
-    "listFiles": false,
-    "outDir": "dist"
+    "sourceMap": true
   },
   "files": [
-    "src/app/bootstrap.ts"
-  ]
+    "typings/main.d.ts",
+    "src/app/app.ts",
+    "src/app/components/bloglist/bloglist.ts",
+    "src/app/components/blognode/blognode.ts",
+    "src/app/components/Disqus/disqus.ts",
+    "src/app/components/siteintro/siteintro.ts",
+    "src/app/Models/blogitem/blogitem.ts",
+    "src/app/services/BlogService/BlogService.ts",
+    "src/bootstrap.ts",
+    "src/vendor.ts"
+  ],
+  "compileOnSave": false
 }

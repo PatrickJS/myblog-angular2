@@ -1,9 +1,9 @@
-import { Component, View } from 'angular2/angular2';
+import {Component, View} from "angular2/core";
 import {Location} from 'angular2/router';
 
 @Component({
     selector: 'disqus',
-    inputs: ['disqus_identifier','disqus_title','disqus_url'],
+    inputs: ['disqusIdentifier','disqusTitle','disqusUrl'],
 })
 @View({
     template: `<div id="disqus_thread"></div><a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>`
@@ -11,9 +11,9 @@ import {Location} from 'angular2/router';
 export class Disqus {
 
     disqus_shortname:string;
-    disqus_identifier:string;
-    disqus_title: string;
-    disqus_url: string;
+    disqusIdentifier:string;
+    disqusTitle: string;
+    disqusUrl: string;
     disqus_api_key: string;
     location: Location;
 
@@ -23,16 +23,16 @@ export class Disqus {
 
     }
 
-    onInit(){
+    ngOnInit(){
 
         let disqus_url = location.href;
-        let disqus_identifier = this.disqus_title + " - " + this.disqus_identifier;
+        let disqus_identifier = this.disqusTitle + " - " + this.disqusIdentifier;
         let disqus_shortname = this.disqus_shortname;
-        let disqus_title = this.disqus_title;
+        let disqus_title = this.disqusTitle;
 
         // ensure that the disqus_identifier and disqus_url are both set, otherwise we will run in to identifier conflicts when using URLs with "#" in them
         // see http://help.disqus.com/customer/portal/articles/662547-why-are-the-same-comments-showing-up-on-multiple-pages-
-        if (typeof this.disqus_identifier === 'undefined' || typeof this.disqus_url === 'undefined') {
+        if (typeof this.disqusIdentifier === 'undefined' || typeof this.disqusUrl === 'undefined') {
             throw "Please ensure that the `disqus-identifier` and `disqus-url` attributes are both set.";
         }
 
