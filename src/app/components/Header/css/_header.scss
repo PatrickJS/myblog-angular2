@@ -1,0 +1,39 @@
+@import "./../../../css/base/_settings";
+@import "./../../../css/base/_colors";
+@import "./../../../css/base/_mixins";
+@import "./../../../css/base/_css3_mixins";
+@import "./../../../css/base/_breakpoints";
+@import "./../../../css/tools/vertical_rythm";
+
+.blog_header {
+  height: 60px;
+  border-bottom: 1px solid $color--grey-light;
+  background: white;
+  position: fixed;
+  width: 100%;
+
+  .menu_toggle {
+    float: left;
+  }
+
+  .icon-list {
+    float: right;
+  }
+
+  .icon-list,
+  .menu_toggle {
+    a {
+      width: 60px;
+      height: 60px;
+      display: inline-block;
+      line-height: 60px;
+      font-size: 20px;
+      text-align: center;
+      @include transition(all 0.5s ease);
+
+      &:hover {
+        background: $color--grey-very-light;
+      }
+    }
+  }
+}

@@ -52,11 +52,13 @@ body {
   margin: {
     left:u(2rem);
     right:u(2rem);
+    top: 60px;
   }
 
   @include breakpoint($breakpoint-narrow){
     max-width:$max-width;
     margin:auto;
+    margin-top: 60px;
   }
 
 }

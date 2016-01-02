@@ -11,6 +11,7 @@ import {Http, Headers} from 'angular2/http';
 import {BlogList} from "./components/bloglist/bloglist";
 import {SiteIntro} from "./components/siteintro/siteintro";
 import {BlogNode} from "./components/blognode/blognode";
+import {Header} from "./components/Header/Header";
 
 var page_css = require("!css!sass!./css/layout/_page.scss");
 
@@ -18,14 +19,15 @@ var page_css = require("!css!sass!./css/layout/_page.scss");
     selector: 'blog-app',
 })
 @View({
-    directives: [ROUTER_DIRECTIVES, BlogList, SiteIntro],
+    directives: [ROUTER_DIRECTIVES, BlogList, SiteIntro, Header],
     styles: [`${page_css}`],
     encapsulation : ViewEncapsulation.None,
     template: `
-<div class="blog-app">
-                    <site-intro></site-intro>
-                    <router-outlet></router-outlet>
-                </div>`
+    <blog-header></blog-header>
+    <div class="blog-app">
+        <site-intro></site-intro>
+        <router-outlet></router-outlet>
+    </div>`
 })
 @RouteConfig([
     {path: '/', component: BlogList, as: 'Home'},
