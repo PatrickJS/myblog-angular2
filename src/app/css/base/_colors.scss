@@ -47,3 +47,40 @@ $color--grey-dark:#333;
 * Button primary color
 */
 $button-color--primary:#373C43;
+
+/*
+* Social backgrounds
+*/
+
+$social-profiles: (
+        twitter: #00c7f7,
+        facebook: #335397,
+        google-plus: #dd4a38,
+        gplus: #dd4a38,
+        instagram:#82685a,
+        vimeo:#63879c,
+        flickr:#0061db,
+        github:#3b3b3b,
+        pinterest:#bc2725,
+        tumblr:#586980,
+        linkedin:#018faf,
+        dribble:#ea73a0,
+        stumbleupon:#ea4b24,
+        lastfm:#b80638,
+        evernote:#3bab27,
+        skype:#skype,
+        soundcloud:#06f,
+        behance:#b80638,
+        rss:#f79638,
+        youtube:#cc181e,
+        drupal:#0678be
+);
+
+@each $profile, $bgcolor in $social-profiles {
+  .hover-bg-#{$profile}:focus,
+  .hover-bg-#{$profile}:hover {
+    color: #fff;
+    background: $bgcolor;
+  }
+
+}
