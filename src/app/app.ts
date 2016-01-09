@@ -43,11 +43,15 @@ export class App {
     ngOnInit(){
         this.links = [{
             "url": "about",
-            "name": "Me"
+            "name": "About Me"
         },
         {
             "url": "projects",
-            "name": "Projects"
+            "name": "My Projects"
+        },
+        {
+            "url": "archives",
+            "name": "Archives"
         }]
     }
 
