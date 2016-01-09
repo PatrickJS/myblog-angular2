@@ -13,7 +13,7 @@ var logo = require("url!./images/logo_dark.jpeg");
     <img alt="logo_dark" src="${logo}"/>
   </a>
   <p class="site-intro__intro-text">
-    Hi, my name Joao. I love travelling, programming and sports. I also enjoy coffee very much. Thank you for
+    Hi, my name is Joao Garin. I love travelling, programming and sports. I also enjoy coffee very much. Thank you for
     visiting my blog.
   </p>
   <span class="site-intro__separator">
