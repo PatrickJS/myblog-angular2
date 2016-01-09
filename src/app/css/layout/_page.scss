@@ -48,6 +48,7 @@ body {
   font-family: $base--font;
   font-size:u(1rem);
   line-height: u(2.1rem);
+  @include transition(all 0.5s ease);
 
   margin: {
     left:u(2rem);
@@ -59,6 +60,12 @@ body {
     max-width:$max-width;
     margin:auto;
     margin-top: 60px;
+  }
+
+  &.shiftLeft {
+    @include breakpoint($breakpoint-narrow){
+      @include transform(translate(180px,0));
+    }
   }
 
 }

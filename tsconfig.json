@@ -15,6 +15,7 @@
     "src/app/components/Disqus/disqus.ts",
     "src/app/components/siteintro/siteintro.ts",
     "src/app/components/Header/Header.ts",
+    "src/app/components/NavSidebar/NavSidebar.ts",
     "src/app/Models/blogitem/blogitem.ts",
     "src/app/services/BlogService/BlogService.ts",
     "src/bootstrap.ts",
