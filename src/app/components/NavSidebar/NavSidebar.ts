@@ -38,14 +38,12 @@ export class NavSidebar {
 
     constructor() {
         this.NavStateChanged = new EventEmitter();
-    }
-
-    ngOnInit() {
-        this.isOpen = false;
+        Object.assign(this,{isOpen:false});
     }
 
     toggleNav() {
-        this.isOpen = !this.isOpen;
+        var changedStatus = !this.isOpen;
+        Object.assign(this,{isOpen:changedStatus});
         this.NavStateChanged.emit("opened");
     }
 }
