@@ -64,8 +64,14 @@ body {
 
   &.shiftLeft {
     @include breakpoint($breakpoint-narrow){
-      @include transform(translate(180px,0));
+      //@include transform(translate(180px,0));
+      margin-left: 400px;
     }
+  }
+
+  &.shiftLeft .about {
+    left: 300px;
+    margin-left: 0;
   }
 
 }

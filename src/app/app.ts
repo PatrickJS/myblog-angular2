@@ -9,10 +9,10 @@ import {Http, Headers} from 'angular2/http';
  * App child components
  */
 import {BlogList} from "./components/bloglist/bloglist";
-import {SiteIntro} from "./components/siteintro/siteintro";
 import {BlogNode} from "./components/blognode/blognode";
 import {Header} from "./components/Header/Header";
 import {NavSidebar} from "./components/NavSidebar/NavSidebar";
+import {about} from "./components/about/about";
 
 var page_css = require("!css!sass!./css/layout/_page.scss");
 
@@ -20,20 +20,20 @@ var page_css = require("!css!sass!./css/layout/_page.scss");
     selector: 'blog-app',
 })
 @View({
-    directives: [ROUTER_DIRECTIVES, BlogList, SiteIntro, Header, NavSidebar],
+    directives: [ROUTER_DIRECTIVES, BlogList, Header, NavSidebar],
     styles: [`${page_css}`],
     encapsulation : ViewEncapsulation.None,
     template: `
     <blog-header></blog-header>
     <nav-sidebar (NavStateChanged)="moveBody($event)" [navLinks]=links></nav-sidebar>
     <div class="blog-app" [ngClass]="{shiftLeft:shifted}">
-        <site-intro></site-intro>
         <router-outlet></router-outlet>
     </div>`
 })
 @RouteConfig([
     {path: '/', component: BlogList, as: 'Home'},
-    {path: '/blog/:title', component: BlogNode, as: 'Blognode'}
+    {path: '/blog/:title', component: BlogNode, as: 'Blognode'},
+    {path: '/about', component: about, as: 'About'}
 ])
 export class App {
 
@@ -42,16 +42,8 @@ export class App {
 
     ngOnInit(){
         this.links = [{
-            "url": "about",
+            "url": "About",
             "name": "About Me"
-        },
-        {
-            "url": "projects",
-            "name": "My Projects"
-        },
-        {
-            "url": "archives",
-            "name": "Archives"
         }]
     }
 

@@ -19,11 +19,17 @@ var nav_css = require("!css!sass!./css/_navsidebar.scss");
     </div>
     <aside class="nav_sidebar" [ngClass]="{opened: isOpen}">
         <div class="user-pic">
-          <img src="https://www.drupal.org/files/styles/grid-2/public/user-pictures/picture-612814-1413290760.png?itok=GXM2mba3"/>
+          <a [routerLink]="['Home']"><img src="https://www.drupal.org/files/styles/grid-2/public/user-pictures/picture-612814-1413290760.png?itok=GXM2mba3"/></a>
         </div>
         <ul>
             <li *ngFor="#navLink of navLinks">
-                <a href="navLink.url">{{navLink.name}}</a>
+                <a [routerLink]="[navLink.url]">{{navLink.name}}</a>
+            </li>
+            <li>
+                <a href="projects">Projects</a>
+            </li>
+            <li>
+                <a href="Archives">Archives</a>
             </li>
         </ul>
         <a href="https://twitter.com/joaogarin" class="twitter-follow-button" data-show-count="false">Follow @joaogarin</a>

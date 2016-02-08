@@ -6,6 +6,7 @@ import {NgFor, NgIf} from "angular2/common";
 import {BlogItem} from "../../Models/blogitem/blogitem";
 import {BlogService} from "../../services/BlogService/BlogService";
 import {RouterLink} from 'angular2/router';
+import {SiteIntro} from "../siteintro/siteintro";
 
 var blogs_css = require("!css!sass!./css/_blog_item.scss");
 
@@ -14,9 +15,9 @@ var blogs_css = require("!css!sass!./css/_blog_item.scss");
     providers: [BlogService]
 })
 @View({
-    directives: [NgFor,RouterLink],
+    directives: [NgFor,RouterLink, SiteIntro],
     styles: [`${blogs_css}`],
-    template: `<div class="blog-list blogs">
+    template: `<site-intro></site-intro><div class="blog-list blogs">
     <div class="blog_item" *ngFor="#blog_item of blogItems">
         <p class="text-muted">
             Post on : {{blog_item.created}} by Joao Garin
