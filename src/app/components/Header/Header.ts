@@ -1,6 +1,6 @@
 import {Component, View} from "angular2/core";
 
-var header_css = require("!css!sass!./css/_header.scss");
+var header_css = require("./css/_header.scss");
 
 @Component({
     selector:'blog-header'

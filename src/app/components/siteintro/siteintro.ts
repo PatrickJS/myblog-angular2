@@ -1,8 +1,8 @@
 import {Component, View} from "angular2/core";
 import {RouterLink} from 'angular2/router';
 
-var css = require("!css!sass!./css/_siteintro.scss");
-var logo = require("url!./images/logo_dark.jpeg");
+var css = require("./css/_siteintro.scss");
+var logo = require("./images/logo_dark.jpeg");
 
 @Component({
     selector: 'site-intro',

@@ -3,7 +3,7 @@ import {NgFor, NgIf} from "angular2/common";
 import {NgClass} from 'angular2/common';
 import {RouterLink} from 'angular2/router';
 
-var nav_css = require("!css!sass!./css/_navsidebar.scss");
+var nav_css = require("./css/_navsidebar.scss");
 
 @Component({
     selector: 'nav-sidebar',

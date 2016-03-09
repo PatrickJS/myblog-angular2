@@ -1,9 +1,9 @@
 /*
  * Angular 2 decorators and services
  */
-import {Directive,View, Component, Renderer,ViewEncapsulation} from 'angular2/core';
+import {Directive,View, Component,ViewEncapsulation} from 'angular2/core';
 import {RouteConfig, Router,ROUTER_DIRECTIVES} from 'angular2/router';
-import {Http, Headers} from 'angular2/http';
+import {Http} from 'angular2/http';
 
 /*
  * App child components
@@ -14,10 +14,10 @@ import {Header} from "./components/Header/Header";
 import {NavSidebar} from "./components/NavSidebar/NavSidebar";
 import {about} from "./components/about/about";
 
-var page_css = require("!css!sass!./css/layout/_page.scss");
+var page_css = require("./css/layout/_page.scss");
 
 @Component({
-    selector: 'blog-app',
+    selector: 'app',
 })
 @View({
     directives: [ROUTER_DIRECTIVES, BlogList, Header, NavSidebar],
@@ -31,9 +31,10 @@ var page_css = require("!css!sass!./css/layout/_page.scss");
     </div>`
 })
 @RouteConfig([
-    {path: '/', component: BlogList, as: 'Home'},
-    {path: '/blog/:title', component: BlogNode, as: 'Blognode'},
-    {path: '/about', component: about, as: 'About'}
+    {path: '/', component: BlogList, name: 'Home'},
+    {path: '/blog', component: BlogList, name: 'Home'},
+    {path: '/blog/:title', component: BlogNode, name: 'Blognode'},
+    {path: '/about', component: about, name: 'About'}
 ])
 export class App {
 

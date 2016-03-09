@@ -9,7 +9,7 @@ export class BlogService {
 
     constructor(http:Http) {
         this.blogitems = function(node_item) {
-            return http.get('http://localhost/blog_backoffice/blog-items-fields/all')
+            return http.get('http://joaogarin.com/blog_backoffice/blog-items-fields/all')
                 .map(response => response.json().map(item => {
                     return new BlogItem(
                         item.field_image,
@@ -24,7 +24,7 @@ export class BlogService {
 
         this.blogitemnode = function (title) {
 
-            return http.get('http://localhost/blog_backoffice/get-alias-id/' + title).map(response_alias => response_alias.json().map(
+            return http.get('http://joaogarin.com/blog_backoffice/get-alias-id/' + title).map(response_alias => response_alias.json().map(
                 alias_item => {
                     //An observable being returned inside another
                     return http.get('http://localhost/blog_backoffice/get-node/' + alias_item.nid)

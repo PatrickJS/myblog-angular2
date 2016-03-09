@@ -5,7 +5,7 @@
 
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initiadthcale=1">
   <meta name="description" content="Angular2 blog by @joaogarin">
   <link rel="icon" href="data:;base64,iVBORw0KGgo=">
   <!-- base url -->
@@ -13,7 +13,7 @@
 
 
   <!-- use http://www.favicon-generator.org/ to replace files in public/icon-->
-  <link rel="icon" type="image/png" href="images/logo_dark.png">
+  <link rel="icon" type="image/png" href="/images/logo_dark.png">
 
   <link href='https://fonts.googleapis.com/css?family=Libre+Baskerville:400,400italic,700' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,400italic' rel='stylesheet' type='text/css'>
@@ -22,21 +22,17 @@
   <link href='https://fonts.googleapis.com/css?family=Josefin+Sans:400,600,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-  
+
 </head>
 <body>
 
-  <blog-app>
+  <app>
     Loading...
-  </blog-app>
+  </app>
 
   <!-- Common files to be cached -->
-  <script src="/__build__/common.js"></script>
-  <!-- Vendor files -->
-  <script src="/__build__/vendor.js"></script>
-  <!-- App script -->
-  <script src="/__build__/app.js"></script>
+  <script src="/dist/client/bundle.js"></script>
 
-  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  <!--<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>-->
 </body>
 </html>

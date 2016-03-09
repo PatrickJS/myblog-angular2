@@ -9,7 +9,7 @@ import {BlogService} from "../../services/BlogService/BlogService";
 import {Disqus} from "../Disqus/disqus";
 import {SiteIntro} from "../siteintro/siteintro";
 
-var blogs_css = require("!css!sass!./css/_blog_item_node.scss");
+var blogs_css = require("./css/_blog_item_node.scss");
 
 @Component({
     selector: 'blog-node',

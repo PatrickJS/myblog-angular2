@@ -1,6 +1,6 @@
 import {Component, View} from "angular2/core";
 
-var $css_about = require("!css!sass!./css/_about.scss");
+var $css_about = require("./css/_about.scss");
 
 @Component({
     selector: "about"

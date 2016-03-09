@@ -1,26 +1,23 @@
 {
   "compilerOptions": {
-    "target": "ES5",
+    "target": "es5",
     "module": "commonjs",
-    "removeComments": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "sourceMap": true
   },
-  "files": [
+  "exclude": [
+    "node_modules",
     "typings/main.d.ts",
-    "src/app/app.ts",
-    "src/app/components/bloglist/bloglist.ts",
-    "src/app/components/blognode/blognode.ts",
-    "src/app/components/Disqus/disqus.ts",
-    "src/app/components/siteintro/siteintro.ts",
-    "src/app/components/Header/Header.ts",
-    "src/app/components/NavSidebar/NavSidebar.ts",
-    "src/app/components/about/about.ts",
-    "src/app/Models/blogitem/blogitem.ts",
-    "src/app/services/BlogService/BlogService.ts",
-    "src/bootstrap.ts",
-    "src/vendor.ts"
+    "typings/main"
   ],
-  "compileOnSave": false
+  "filesGlob": [
+    "./src/**/*.ts",
+    "!./node_modules/**/*.ts",
+    "src/custom_typings.d.ts",
+    "typings/browser.d.ts"
+  ],
+  "compileOnSave": false,
+  "buildOnSave": false,
+  "atom": { "rewriteTsconfig": false }
 }

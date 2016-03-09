@@ -8,14 +8,14 @@ import {BlogService} from "../../services/BlogService/BlogService";
 import {RouterLink} from 'angular2/router';
 import {SiteIntro} from "../siteintro/siteintro";
 
-var blogs_css = require("!css!sass!./css/_blog_item.scss");
+var blogs_css = require("./css/_blog_item.scss");
 
 @Component({
     selector: 'blog-list',
     providers: [BlogService]
 })
 @View({
-    directives: [NgFor,RouterLink, SiteIntro],
+    directives: [NgFor, RouterLink, SiteIntro],
     styles: [`${blogs_css}`],
     template: `<site-intro></site-intro><div class="blog-list blogs">
     <div class="blog_item" *ngFor="#blog_item of blogItems">
@@ -43,13 +43,18 @@ var blogs_css = require("!css!sass!./css/_blog_item.scss");
 })
 export class BlogList {
 
-    data: Object;
-    loading: boolean;
-    blogItems: Array<BlogItem>;
-    //Here we will start picking up the blog items from the backoffice
-    constructor(public blogservice: BlogService) {
+    data:Object;
+    loading:boolean;
+    blogItems:Array<BlogItem>;
+    
+    constructor(public _blogservice:BlogService) {}
 
-        blogservice.blogitems("all")
+    ngOnInit() {
+        this.getBogItems();
+    }
+
+    getBogItems() {
+        this._blogservice.blogitems("all")
             .subscribe(
                 blogitems => this.blogItems = blogitems,
                 error => console.error('Error: ' + error),
