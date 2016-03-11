@@ -3,7 +3,7 @@ import * as express from 'express';
 
 // Angular 2
 import 'angular2-universal-preview/polyfills';
-import {ng2engine, REQUEST_URL, NODE_LOCATION_PROVIDERS,NODE_HTTP_PROVIDERS} from 'angular2-universal-preview';
+import {expressEngine, REQUEST_URL, NODE_LOCATION_PROVIDERS,NODE_HTTP_PROVIDERS} from 'angular2-universal-preview';
 import {provide, enableProdMode} from 'angular2/core';
 import {APP_BASE_HREF, ROUTER_PROVIDERS} from 'angular2/router';
 import {App} from './app/app';
@@ -14,7 +14,7 @@ let root = path.join(path.resolve(__dirname, '..'));
 enableProdMode();
 
 // Express View
-app.engine('.html', ng2engine);
+app.engine('.html', expressEngine);
 app.set('views', __dirname);
 app.set('view engine', 'html');
 
