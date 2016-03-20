@@ -56,7 +56,7 @@ export class BlogList {
             .subscribe(
                 blogitems => this.blogItems = blogitems,
                 error => console.error('Error: ' + error),
-                () => console.log(this.blogItems)
+                () => console.log("Finished loading blogs request")
             );
     }
 }
