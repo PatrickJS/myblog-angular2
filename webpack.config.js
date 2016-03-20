@@ -41,7 +41,10 @@ var common = {
         exclude: [/node_modules/]
       }
     ]
-  }
+  },
+  plugins: [
+    new webpack.optimize.OccurenceOrderPlugin(true)
+  ]
 };
 
 var client = {
@@ -61,12 +64,7 @@ var server = {
   output: {
     path: __dirname + '/dist/server'
   },
-  externals: function checkNodeImport(context, request, cb) {
-    if (!path.isAbsolute(request) && request.charAt(0) !== '.') {
-      cb(null, 'commonjs ' + request); return;
-    }
-    cb();
-  },
+  externals: checkNodeImport,
   node: {
     global: true,
     __dirname: true,
@@ -98,3 +96,11 @@ module.exports = [
   // Server
   webpackMerge({}, defaults, common, server)
 ];
+
+// Helpers
+function checkNodeImport(context, request, cb) {
+  if (!path.isAbsolute(request) && request.charAt(0) !== '.') {
+    cb(null, 'commonjs ' + request); return;
+  }
+  cb();
+}
