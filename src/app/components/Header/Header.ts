@@ -1,11 +1,9 @@
-import {Component, View} from "angular2/core";
+import {Component} from "angular2/core";
 
 var header_css = require("./css/_header.scss");
 
 @Component({
-    selector:'blog-header'
-})
-@View({
+    selector:'blog-header',
     styles: [`${header_css}`],
     template: `<div class="blog_header">
     <div class="icon-list">

@@ -1,4 +1,4 @@
-import {Component, View, EventEmitter} from "angular2/core";
+import {Component, EventEmitter} from "angular2/core";
 import {NgFor, NgIf} from "angular2/common";
 import {NgClass} from 'angular2/common';
 import {RouterLink} from 'angular2/router';
@@ -8,9 +8,7 @@ var nav_css = require("./css/_navsidebar.scss");
 @Component({
     selector: 'nav-sidebar',
     inputs: ['navLinks'],
-    outputs: ['NavStateChanged']
-})
-@View({
+    outputs: ['NavStateChanged'],
     styles: [`${nav_css}`],
     directives: [NgFor, RouterLink, NgClass],
     template: `
@@ -35,7 +33,6 @@ var nav_css = require("./css/_navsidebar.scss");
         <a href="https://twitter.com/joaogarin" class="twitter-follow-button" data-show-count="false">Follow @joaogarin</a>
      </aside>`
 })
-
 export class NavSidebar {
 
     navLinks:any;

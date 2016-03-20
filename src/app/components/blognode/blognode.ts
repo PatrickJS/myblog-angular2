@@ -1,7 +1,7 @@
 /*
  * Angular
  */
-import {Component, View} from "angular2/core";
+import {Component} from "angular2/core";
 import {NgFor, NgIf} from "angular2/common";
 import {RouteParams} from "angular2/router";
 import {BlogItem} from "../../Models/blogitem/blogitem";
@@ -13,9 +13,7 @@ var blogs_css = require("./css/_blog_item_node.scss");
 
 @Component({
     selector: 'blog-node',
-    providers: [BlogService]
-})
-@View({
+    providers: [BlogService],
     directives: [NgFor,Disqus,SiteIntro],
     styles: [`${blogs_css}`],
     template: `<site-intro></site-intro><div class="blog-list blogs">

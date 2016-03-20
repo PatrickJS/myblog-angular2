@@ -1,7 +1,7 @@
 /*
  * Angular 2 decorators and services
  */
-import {Directive,View, Component,ViewEncapsulation} from 'angular2/core';
+import {Directive, Component,ViewEncapsulation} from 'angular2/core';
 import {RouteConfig, Router,ROUTER_DIRECTIVES} from 'angular2/router';
 import {Http} from 'angular2/http';
 
@@ -18,8 +18,6 @@ var page_css = require("./css/layout/_page.scss");
 
 @Component({
     selector: 'app',
-})
-@View({
     directives: [ROUTER_DIRECTIVES, BlogList, Header, NavSidebar],
     styles: [`${page_css}`],
     encapsulation : ViewEncapsulation.None,

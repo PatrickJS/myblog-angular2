@@ -1,11 +1,9 @@
-import {Component, View} from "angular2/core";
+import {Component} from "angular2/core";
 
 var $css_about = require("./css/_about.scss");
 
 @Component({
-    selector: "about"
-})
-@View({
+    selector: "about",
     template: `<div class="about">
         <div class="about-text">
             <div class="text-inner">
@@ -22,7 +20,7 @@ var $css_about = require("./css/_about.scss");
             </div>
         </div>
     </div>`,
-    styles: [`${$css_about}`],
+    styles: [`${$css_about}`]
 })
 export class about {
 

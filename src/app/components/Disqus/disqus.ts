@@ -1,11 +1,9 @@
-import {Component, View} from "angular2/core";
+import {Component} from "angular2/core";
 import {Location} from 'angular2/router';
 
 @Component({
     selector: 'disqus',
     inputs: ['disqusIdentifier','disqusTitle','disqusUrl'],
-})
-@View({
     template: `<div id="disqus_thread"></div><a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>`
 })
 export class Disqus {
