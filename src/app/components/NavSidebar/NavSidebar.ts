@@ -30,7 +30,6 @@ var nav_css = require("./css/_navsidebar.scss");
                 <a href="Archives">Archives</a>
             </li>
         </ul>
-        <a href="https://twitter.com/joaogarin" class="twitter-follow-button" data-show-count="false">Follow @joaogarin</a>
      </aside>`
 })
 export class NavSidebar {

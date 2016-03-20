@@ -1,21 +1,16 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "module": "commonjs",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
+    "target": "es5",
+    "module": "commonjs",
+    "removeComments": true,
     "sourceMap": true
   },
   "exclude": [
-    "node_modules",
     "typings/main.d.ts",
-    "typings/main"
-  ],
-  "filesGlob": [
-    "./src/**/*.ts",
-    "!./node_modules/**/*.ts",
-    "src/custom_typings.d.ts",
-    "typings/browser.d.ts"
+    "typings/main",
+    "node_modules"
   ],
   "compileOnSave": false,
   "buildOnSave": false,

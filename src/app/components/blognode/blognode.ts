@@ -6,7 +6,7 @@ import {NgFor, NgIf} from "angular2/common";
 import {RouteParams} from "angular2/router";
 import {BlogItem} from "../../Models/blogitem/blogitem";
 import {BlogService} from "../../services/BlogService/BlogService";
-import {Disqus} from "../Disqus/disqus";
+//import {Disqus} from "../Disqus/disqus";
 import {SiteIntro} from "../siteintro/siteintro";
 
 var blogs_css = require("./css/_blog_item_node.scss");
@@ -14,7 +14,7 @@ var blogs_css = require("./css/_blog_item_node.scss");
 @Component({
     selector: 'blog-node',
     providers: [BlogService],
-    directives: [NgFor,Disqus,SiteIntro],
+    directives: [NgFor,SiteIntro],
     styles: [`${blogs_css}`],
     template: `<site-intro></site-intro><div class="blog-list blogs">
     <div class="blog_item" *ngFor="#blog_item of blogItems">
@@ -33,9 +33,9 @@ var blogs_css = require("./css/_blog_item_node.scss");
         <p class="post-body" [innerHtml]="blog_item.body">
 
         </p>
-        <div class="comments">
+        <!--<div class="comments">
             <disqus [disqusIdentifier]="blog_item.id" [disqusTitle]="blog_item.title" [disqusUrl]="blog_item.url"></disqus>
-        </div>
+        </div>-->
     </div>
 </div>`
 })
