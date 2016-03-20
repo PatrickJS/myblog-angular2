@@ -1,7 +1,7 @@
 {
-    "name": "angular2-webpack-starter",
+    "name": "myblog-angular2",
     "version": "0.0.0",
-    "description": "An Angular 2 Webpack Starter kit featuring Angular 2 (Router, Http, Forms, Services, Tests, E2E), Karma, Protractor, Jasmine, TypeScript, and Webpack by AngularClass",
+    "description": "Angular2 and Drupal",
     "scripts": {
         "postinstall": "./node_modules/.bin/typings install",
         "watch": "./node_modules/.bin/webpack --watch",
@@ -14,14 +14,14 @@
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/angularclass/angular2-webpack-starter.git"
+        "url": "https://github.com/joaogarin/myblog-angular2"
     },
-    "author": "gdi2290 <github@gdi2290.com>",
+    "author": "joaogarin <joao.garin@gmail.com>",
     "license": "MIT",
     "bugs": {
-        "url": "https://github.com/angularclass/angular2-webpack-starter/issues"
+        "url": "https://github.com/joaogarin/myblog-angular2issues"
     },
-    "homepage": "https://github.com/angularclass/angular2-webpack-starter",
+    "homepage": "https://github.com/joaogarin/myblog-angular2",
     "dependencies": {
         "angular2": "2.0.0-beta.11",
         "angular2-universal-preview": "~0.80.0",
