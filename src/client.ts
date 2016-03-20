@@ -11,4 +11,4 @@ bootstrap(App, [
     ...ROUTER_PROVIDERS,
     ...HTTP_PROVIDERS
 ])
-.then(prebootComplete)
+.then(prebootComplete);
