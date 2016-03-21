@@ -5,13 +5,8 @@
  * env(), getBanner(), root(), and rootDir()
  * are defined at the bottom
  */
-var sliceArgs = Function.prototype.call.bind(Array.prototype.slice);
-var toString = Function.prototype.call.bind(Object.prototype.toString);
 var path = require('path');
 var webpack = require('webpack');
-var webpackMerge = require('webpack-merge');
-// Webpack Plugins
-var CommonsChunkPlugin = webpack.optimize.CommonsChunkPlugin;
 
 var commonConfig = {
     resolve: {
@@ -35,11 +30,7 @@ var commonConfig = {
             { test: /\.(png|jpg|jpeg)$/, loader: 'url-loader?limit=8192' },
 
             // Support for .ts files.
-            {
-                test: /\.ts$/,
-                loader: 'ts-loader',
-                exclude: [/node_modules/]
-            }
+            { test: /\.ts$/, loader: 'ts-loader' }
         ]
     },
     plugins: [
@@ -98,6 +89,7 @@ var defaultConfig = {
     }
 }
 
+var webpackMerge = require('webpack-merge');
 /*
  * Config
  */
