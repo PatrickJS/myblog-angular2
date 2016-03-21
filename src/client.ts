@@ -7,8 +7,11 @@ import {HTTP_PROVIDERS} from 'angular2/http';
 
 import {App} from './app/app';
 
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/mergeMap';
+
 bootstrap(App, [
-    ...ROUTER_PROVIDERS,
-    ...HTTP_PROVIDERS
+  ...ROUTER_PROVIDERS,
+  ...HTTP_PROVIDERS
 ])
 .then(prebootComplete);

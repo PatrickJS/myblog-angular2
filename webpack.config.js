@@ -49,12 +49,16 @@ var commonConfig = {
 
 var clientConfig = {
     target: 'web',
-    entry: {
-        'vendor': './src/vendor',
-        'client': './src/client'
-    },
+    entry: './src/client',
     output: {
-        path: __dirname + '/dist/client'
+        path: path.join(__dirname, 'dist', 'client')
+    },
+    node: {
+        global: true,
+        __dirname: true,
+        __filename: true,
+        process: true,
+        Buffer: false
     }
 };
 
@@ -62,7 +66,7 @@ var serverConfig = {
     target: 'node',
     entry: './src/server',
     output: {
-        path: __dirname + '/dist/server'
+        path: path.join(__dirname, 'dist', 'server')
     },
     externals: checkNodeImport,
     node: {
