@@ -36,8 +36,7 @@ function ngApp(req, res) {
             NODE_PRELOAD_CACHE_HTTP_PROVIDERS
         ],
         async: true,
-        preboot: true,
-        precache: true,
+        preboot: true
     });
 }
 
