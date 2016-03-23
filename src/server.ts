@@ -14,6 +14,9 @@ import {provide, enableProdMode} from 'angular2/core';
 
 import {APP_BASE_HREF, ROUTER_PROVIDERS} from 'angular2/router';
 
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/mergeMap';
+
 import {App} from './app/app';
 
 let app = express();
