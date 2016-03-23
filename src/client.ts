@@ -14,4 +14,9 @@ bootstrap(App, [
   ...ROUTER_PROVIDERS,
   ...HTTP_PROVIDERS
 ])
-.then(prebootComplete);
+.then(bootstrapComplete);
+
+function bootstrapComplete(){
+    console.log("Bootstrap complete");
+    prebootComplete;
+}
